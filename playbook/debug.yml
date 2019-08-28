@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  tasks: 
+    - name: change&pwd
+      command: pwd
+      args:
+        chdir: /Users/parker/Documents
+      register: debug
+    - name: print all
+      debug:
+        msg: "{{debug}}"
+    - name: print stdout
+      debug:
+        msg: "{{debug.stdout_lines}}"

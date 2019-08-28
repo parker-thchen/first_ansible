@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tasks: 
+    - name: setup
+      setup:
+      register: res
+    - name: debug
+      debug:
+        msg: '{{res}}'

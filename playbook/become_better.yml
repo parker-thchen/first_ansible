@@ -1,0 +1,13 @@
+---
+- hosts: local
+  tasks:
+    - name: write data
+    - name: Create a file '/tmp/testfile.txt' with the content 'Lazy Guy'
+      copy:
+        content: Lazy Guy
+        dest: /tmp/testfile.txt
+    - name: become better
+      replace:
+        path: /tmp/testfile.txt
+        regexp: 'Lazy'
+        replace: 'better'

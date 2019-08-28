@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  tasks: 
+    - name: remove node modules
+      file:
+        path: '{{path}}/node_modules'
+        state: absent
+    - name: remove lock data
+      file:
+        path: '{{path}}/package-lock.json'
+        state: absent
+    - name: npm install
+      npm:
+        path: '{{path}}'
