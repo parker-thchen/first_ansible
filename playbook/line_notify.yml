@@ -1,0 +1,18 @@
+# 註解調for include_tasks使用
+# ---
+# - name: notify
+  # hosts: localhost
+  # gather_facts: no
+  # tasks:
+  - name: notify message
+    vars:
+      token: XXXXXX # 於line notify申請到的token
+      sendMsg: Hello World!!!
+    uri:
+      url: https://notify-api.line.me/api/notify
+      method: POST
+      headers:
+        Authorization: 'Bearer {{token}}'
+      body_format: form-urlencoded
+      body:
+        message: '{{sendMsg}}'
